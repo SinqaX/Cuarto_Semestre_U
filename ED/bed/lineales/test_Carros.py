@@ -21,9 +21,10 @@ class Carro:
 
     @modelo.setter
     def modelo(self, año_modelo):
-         if año_modelo > 2000:
+        if año_modelo > 2000:
               self.__modelo = año_modelo
-              raise ValueError("No se pudo crear el carro!")
+        else:
+            raise ValueError("No se pudo crear el carro!")
               
 
         
@@ -76,7 +77,3 @@ if __name__ == "__main__":
 
 
 
-
-
-
-    
