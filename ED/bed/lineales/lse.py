@@ -77,6 +77,8 @@ class Lista_SE:
             self.__cab = nuevo_nodo
         else:
             actual = self.__cab
+
+            0
             indice = 0
             while actual and indice < pos - 1:
                 actual = actual.sig

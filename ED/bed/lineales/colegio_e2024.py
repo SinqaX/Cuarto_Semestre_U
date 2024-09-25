@@ -416,3 +416,7 @@ if __name__ == "__main__":
         estudiante.nota = 6.0  # Esto lanzará una excepción
     except ValueError as e:
         print(e)
+        
+
+
+
