@@ -1,27 +1,34 @@
-class Nodo_listaDE:
-    """clase que modela un nodo para una estructura de lista doblemente enlazada
+class NodoListaDE:
     """
-    
-    def __init__(self, dato):
-        """metodo constructor para una lista doblemente enlazada
+     Clase que modela los nodos para una lista doble enlazada
+    """
+    def __init__(self, dato, siguiente=None, anterior=None):
+        """
+        __init__
+        Inicializa un nodo con un dato.
 
         Parameters
         ----------
-        dato : object
-            el dato que se pasa al nodo
+        dato : Nodo
+            Recibe un dato ya sea string, bool, int, float, etc...
+        siguiente: Nodo
+            Referencia el siguiente nodo de la lista, de lo contrario None
+        anterior: Nodo
+            Referencia el anterior nodo de la lista, de lo contrario None
         """
+
         self.dato = dato
-        self.next = None
-        self.back = None
-    
+        self.siguiente = siguiente
+        self.anterior = anterior
+
     def __str__(self):
-        """metodo que retorna una cadena con el dato del nodo
+        """
+        __str__ _summary_
+        Metodo para imprimir el nodo
 
         Returns
         -------
-        str
-            la cadena ha ser retornada por el nodo que incluye el dato
+        STRING
+            devuelve el dato en string
         """
         return str(self.dato)
-
-

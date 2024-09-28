@@ -35,17 +35,18 @@ def format_duration(seconds):
         return "now"
     else:
         if seconds > 60:
-            minutes = seconds / 60
+            minutes = seconds // 60
             print(f"minutes {minutes}")
             if minutes > 60:
-                hours = minutes / 60
+                hours = minutes // 60
                 print(f"hours {hours}")
                 if hours > 24:
-                    days = hours / 24
+                    days = hours // 24
                     print(f"days {days}")
                     if days > 365:
-                        years = days / 365
+                        years = days // 365
                         print(f"years {years}")
+
     
 format_duration(0)
 format_duration(1)
