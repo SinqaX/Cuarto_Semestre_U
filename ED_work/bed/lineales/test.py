@@ -64,5 +64,13 @@ class TestListaDE(unittest.TestCase):
         self.lista.inverso = True
         self.assertEqual([nodo.dato for nodo in self.lista], [3, 2, 1])
 
+    # def test_homogeneidad(self):
+    #     # Prueba que todos los elementos deben ser del mismo tipo
+    #     self.lista.adicionar(1)
+    #     self.lista.adicionar(2)
+    #     with self.assertRaises(TypeError):
+    #         self.lista.adicionar("texto")  # Intentar añadir un string cuando ya hay enteros
+
+
 if __name__ == '__main__':
     unittest.main()

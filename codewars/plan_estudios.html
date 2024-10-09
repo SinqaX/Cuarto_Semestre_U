@@ -1,0 +1,466 @@
+<style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    .semester {
+      background-color: #e6e6e6;
+      font-weight: bold;
+    }
+    .subtotal {
+      background-color: #f9f9f9;
+      font-weight: bold;
+    }
+    .highlight {
+      background-color: #d4edda; /* Color verde claro */
+    }
+  </style>
+  
+  <table>
+    <tr>
+      <th>ASIGNATURA</th>
+      <th>Horas Semanales (teoría/práctica)</th>
+      <th>Créditos Académicos</th>
+      <th>Prerrequisitos</th>
+    </tr>
+    <tr class="semester">
+      <td colspan="4">SEMESTRE 1</td>
+    </tr>
+    <tr class="highlight">
+      <td>PROGRAMACIÓN I</td>
+      <td>2/4</td>
+      <td>4</td>
+      <td></td>
+    </tr>
+    <tr class="highlight">
+      <td>INTRODUCCIÓN A LA INGENIERÍA DE SISTEMAS</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td></td>
+    </tr>
+    <tr class="highlight">
+      <td>TEORIA GENERAL DE SISTEMAS</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td></td>
+    </tr>
+    <tr class="highlight">
+      <td>MATEMÁTICAS GENERALES</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td></td>
+    </tr>
+    <tr class="highlight">
+      <td>LOGICA MATEMATICA</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td></td>
+    </tr>
+    <tr class="highlight">
+      <td>SUBTOTAL:</td>
+      <td>18/4</td>
+      <td>16</td>
+      <td></td>
+    </tr>
+    <tr class="semester">
+      <td colspan="4">SEMESTRE 2</td>
+    </tr>
+    <tr class="highlight">
+      <td>PROGRAMACIÓN II</td>
+      <td>2/4</td>
+      <td>4</td>
+      <td>PROGRAMACIÓN I</td>
+    </tr>
+    <tr class="highlight">
+      <td>METODOLOGÍA DE LA INVESTIGACIÓN</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td></td>
+    </tr>
+    <tr class="highlight">
+      <td>CALCULO DIFERENCIAL</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td>MATEMÁTICAS GENERALES</td>
+    </tr>
+    <tr class="highlight">
+      <td>ALGEBRA LINEAL</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td>LOGICA MATEMATICA</td>
+    </tr>
+    <tr class="highlight">
+      <td>INGENIERÍA ECONÓMICA</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td></td>
+    </tr>
+    <tr class="highlight">
+      <td>SUBTOTAL:</td>
+      <td>18/4</td>
+      <td>16</td>
+      <td></td>
+    </tr>
+    <tr class="semester">
+      <td colspan="4">SEMESTRE 3</td>
+    </tr>
+    <tr class="highlight">
+      <td>PROGRAMACIÓN III</td>
+      <td>2/4</td>
+      <td>4</td>
+      <td>PROGRAMACIÓN II</td>
+    </tr>
+    <tr class="highlight">
+      <td>INGENIERÍA DE SOFTWARE I</td>
+      <td>2/2</td>
+      <td>3</td>
+      <td></td>
+    </tr>
+    <tr class="highlight">
+      <td>CALCULO INTEGRAL</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td>CALCULO DIFERENCIAL</td>
+    </tr>
+    <tr class="highlight">
+      <td>FÍSICA I</td>
+      <td>4/2</td>
+      <td>4</td>
+      <td>CALCULO DIFERENCIAL</td>
+    </tr>
+    <tr class="highlight">
+      <td>PROBABILIDAD Y ESTADÍSTICA</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td>ALGEBRA LINEAL</td>
+    </tr>
+    <tr class="highlight">
+      <td>SUBTOTAL:</td>
+      <td>16/8</td>
+      <td>17</td>
+      <td></td>
+    </tr>
+    <tr class="semester">
+      <td colspan="4">SEMESTRE 4</td>
+    </tr>
+    <tr class="highlight">
+      <td>ESTRUCTURAS DE DATOS</td>
+      <td>4/2</td>
+      <td>4</td>
+      <td>PROGRAMACIÓN III</td>
+    </tr>
+    <tr class="highlight">
+      <td>INGENIERÍA DE SOFTWARE II</td>
+      <td>2/2</td>
+      <td>3</td>
+      <td>INGENIERÍA DE SOFTWARE I</td>
+    </tr>
+    <tr class="highlight">
+      <td>SISTEMAS DE BASE DE DATOS</td>
+      <td>4/2</td>
+      <td>4</td>
+      <td></td>
+    </tr>
+    <tr class="highlight">
+      <td>CALCULO DE VARIAS VARIABLES</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td>CALCULO INTEGRAL</td>
+    </tr>
+    <tr class="highlight">
+      <td>FÍSICA II</td>
+      <td>4/2</td>
+      <td>4</td>
+      <td>FÍSICA I</td>
+    </tr>
+    <tr class="highlight">
+      <td>SUBTOTAL:</td>
+      <td>18/8</td>
+      <td>18</td>
+      <td></td>
+    </tr>
+    <tr class="semester">
+      <td colspan="4">SEMESTRE 5</td>
+    </tr>
+    <tr>
+      <td>ADMINISTRACIÓN DE SISTEMAS DE BASE DE DATOS</td>
+      <td>0/4</td>
+      <td>3</td>
+      <td>SISTEMAS DE BASE DE DATOS</td>
+    </tr>
+    <tr>
+      <td>INGENIERÍA DE SOFTWARE III</td>
+      <td>2/2</td>
+      <td>3</td>
+      <td>INGENIERÍA DE SOFTWARE II</td>
+    </tr>
+    <tr>
+      <td>INVESTIGACIÓN DE OPERACIONES</td>
+      <td>2/2</td>
+      <td>3</td>
+      <td>ALGEBRA LINEAL</td>
+    </tr>
+    <tr>
+      <td>ECUACIONES DIFERENCIALES</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td>CALCULO DE VARIAS VARIABLES</td>
+    </tr>
+    <tr>
+      <td>ADMINISTRACIÓN DE EMPRESAS</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td>INGENIERÍA ECONÓMICA</td>
+    </tr>
+    <tr class="subtotal">
+      <td>SUBTOTAL:</td>
+      <td>12/8</td>
+      <td>15</td>
+      <td></td>
+    </tr>
+    <tr class="semester">
+      <td colspan="4">SEMESTRE 6</td>
+    </tr>
+    <tr>
+      <td>MÉTODOS NUMÉRICOS</td>
+      <td>2/2</td>
+      <td>3</td>
+      <td>CALCULO DIFERENCIAL</td>
+    </tr>
+    <tr>
+      <td>AUDITORIA Y SEGURIDAD INFORMATICA</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>COMPUTACIÓN GRÁFICA</td>
+      <td>0/4</td>
+      <td>3</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>CIRCUITOS ELECTRONICOS</td>
+      <td>2/2</td>
+      <td>3</td>
+      <td>FÍSICA II</td>
+    </tr>
+    <tr>
+      <td>SISTEMAS OPERATIVOS</td>
+      <td>4/2</td>
+      <td>4</td>
+      <td></td>
+    </tr>
+    <tr class="subtotal">
+      <td>SUBTOTAL:</td>
+      <td>12/10</td>
+      <td>16</td>
+      <td></td>
+    </tr>
+    <tr class="semester">
+      <td colspan="4">SEMESTRE 7</td>
+    </tr>
+    <tr>
+      <td>SISTEMAS INTELIGENTES</td>
+      <td>2/2</td>
+      <td>3</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>LENGUAJES FORMALES Y AUTÓMATAS</td>
+      <td>2/2</td>
+      <td>3</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>MODELAMIENTO Y SIMULACIÓN</td>
+      <td>4/2</td>
+      <td>4</td>
+      <td>PROBABILIDAD Y ESTADÍSTICA</td>
+    </tr>
+    <tr>
+      <td>REDES DE COMPUTADORES</td>
+      <td>2/2</td>
+      <td>3</td>
+      <td>SISTEMAS OPERATIVOS</td>
+    </tr>
+    <tr>
+      <td>ARQUITECTURA DE COMPUTADORES</td>
+      <td>4/2</td>
+      <td>4</td>
+      <td>CIRCUITOS ELECTRONICOS</td>
+    </tr>
+    <tr class="subtotal">
+      <td>SUBTOTAL:</td>
+      <td>14/10</td>
+      <td>17</td>
+      <td></td>
+    </tr>
+    <tr class="semester">
+      <td colspan="4">SEMESTRE 8</td>
+    </tr>
+    <tr>
+      <td>SISTEMAS BASADOS EN EL CONOCIMIENTO</td>
+      <td>2/2</td>
+      <td>3</td>
+      <td>SISTEMAS INTELIGENTES</td>
+    </tr>
+    <tr>
+      <td>SISTEMAS Y SERVICIOS TELEMÁTICOS</td>
+      <td>0/4</td>
+      <td>3</td>
+      <td>REDES DE COMPUTADORES</td>
+    </tr>
+    <tr>
+      <td>FORMULACIÓN Y EVALUACIÓN DE PROYECTOS</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td>ADMINISTRACIÓN DE EMPRESAS</td>
+    </tr>
+    <tr>
+      <td>ELECTIVA</td>
+      <td>0/4</td>
+      <td>3</td>
+      <td>APROBADO 75% PLAN DE ESTUDIOS</td>
+    </tr>
+    <tr>
+      <td>ELECTIVA</td>
+      <td>0/4</td>
+      <td>3</td>
+      <td>APROBADO 75% PLAN DE ESTUDIOS</td>
+    </tr>
+    <tr class="subtotal">
+      <td>SUBTOTAL:</td>
+      <td>6/14</td>
+      <td>15</td>
+      <td></td>
+    </tr>
+    <tr class="semester">
+      <td colspan="4">SEMESTRE 9</td>
+    </tr>
+    <tr>
+      <td>MODELOS DE COMPUTACIÓN</td>
+      <td>2/2</td>
+      <td>3</td>
+      <td>SISTEMAS Y SERVICIOS TELEMÁTICOS</td>
+    </tr>
+    <tr>
+      <td>EMPRENDIMIENTO</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>PROYECTO DE INVESTIGACIÓN I</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td>APROBADO 75% PLAN DE ESTUDIOS</td>
+    </tr>
+    <tr>
+      <td>ELECTIVA</td>
+      <td>0/4</td>
+      <td>3</td>
+      <td>APROBADO 75% PLAN DE ESTUDIOS</td>
+    </tr>
+    <tr>
+      <td>ELECTIVA</td>
+      <td>0/4</td>
+      <td>3</td>
+      <td>APROBADO 75% PLAN DE ESTUDIOS</td>
+    </tr>
+    <tr class="subtotal">
+      <td>SUBTOTAL:</td>
+      <td>10/10</td>
+      <td>15</td>
+      <td></td>
+    </tr>
+    <tr class="semester">
+      <td colspan="4">SEMESTRE 10</td>
+    </tr>
+    <tr>
+      <td>INGENIERÍA LEGAL</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>PROYECTO DE INVESTIGACIÓN II</td>
+      <td>4/0</td>
+      <td>3</td>
+      <td>PROYECTO DE INVESTIGACIÓN I</td>
+    </tr>
+    <tr>
+      <td>ELECTIVA</td>
+      <td>0/4</td>
+      <td>3</td>
+      <td>APROBADO 75% PLAN DE ESTUDIOS</td>
+    </tr>
+    <tr>
+      <td>ELECTIVA</td>
+      <td>0/4</td>
+      <td>3</td>
+      <td>APROBADO 75% PLAN DE ESTUDIOS</td>
+    </tr>
+    <tr class="subtotal">
+      <td>SUBTOTAL:</td>
+      <td>8/8</td>
+      <td>12</td>
+      <td></td>
+    </tr>
+    <tr class="semester">
+        <td colspan="4">COMPETENCIAS BÁSICAS Y FORMACIÓN HUMANÍSTICA</td>
+      </tr>
+      <tr class="highlight">
+        <td>LECTURA Y PRODUCCIÓN DE TEXTOS I</td>
+        <td>2/0</td>
+        <td>1</td>
+        <td></td>
+      </tr>
+      <tr class="highlight">
+        <td>LECTURA Y PRODUCCIÓN DE TEXTOS II</td>
+        <td>2/0</td>
+        <td>1</td>
+        <td>LECTURA Y PRODUCCIÓN DE TEXTOS I</td>
+      </tr>
+      <tr class="highlight">
+        <td>SABER HUMANISTICO</td>
+        <td>2/0</td>
+        <td>2</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>ACTIVIDADES CULTURALES Y DEPORTIVAS</td>
+        <td>0/2</td>
+        <td>2</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>FORMACIÓN CIUDADANA</td>
+        <td>2/0</td>
+        <td>2</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>CONTEXTO SOCIO-HISTÓRICO Y AMBIENTAL</td>
+        <td>2/0</td>
+        <td>2</td>
+        <td></td>
+      </tr>
+      <tr class="subtotal">
+        <td>SUBTOTAL:</td>
+        <td>10/2</td>
+        <td>10</td>
+        <td></td>
+      </tr>
+      
