@@ -10,7 +10,7 @@ class arbolBin:
         self.raiz = self.__adicionar(self.raiz, nueva_clave)
     
     def __adicionar(self, sub_arbol, nueva_clave):
-        if sub_arbol is None:
+        if sub_arbol:
             sub_arbol = nodoArbol_Bin(nueva_clave)
         elif random() <= 0.5: #adicionar por izq
             sub_arbol.izq = self.__adicionar(sub_arbol.izq, nueva_clave)
@@ -57,11 +57,4 @@ class arbolBin:
 
     def altura(self):
         #altura de un arbol
-        
-
-    
-
-
-
-
-
+        pass
