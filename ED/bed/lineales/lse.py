@@ -1,6 +1,6 @@
 # print(f"NAME: {__name__} PAQUETE: {__package__}")
 # if __name__ == "__main__" and __package__ is None:
-from nodos import Nodo_listaSE
+from bed.lineales.nodos import Nodo_listaSE
 # else:
 #     from bed.lineales.nodos import Nodo_listaSE
 

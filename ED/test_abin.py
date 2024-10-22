@@ -1,4 +1,4 @@
-from abin import arbolBin
+from bed.jerarquicas.abin import arbolBin
 
 def test_arbol_binario():
     # Crear un árbol binario

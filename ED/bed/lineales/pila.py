@@ -1,6 +1,6 @@
 # ANDRES FELIPE MARTINEZ GUERRA
 # SEBASTIAN DAVID ORDOÑEZ BOLAÑOS 
-from nodos import Nodo_listaSE
+from bed.lineales.nodos import Nodo_listaSE
 
 class Pila:
     """Clase que implementa el funcionamiento del TAD Pila

@@ -1,5 +1,5 @@
 import unittest
-from notaciones import Prefija
+from bed.lineales.notaciones import Prefija
 
 class TestPrefija(unittest.TestCase):
 

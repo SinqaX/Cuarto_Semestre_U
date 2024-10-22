@@ -1,6 +1,6 @@
 import unittest
-from pila import Pila
-from cola import Cola
+from bed.lineales.pila import Pila
+from bed.lineales.cola import Cola
 
 class TestPila(unittest.TestCase):
     
