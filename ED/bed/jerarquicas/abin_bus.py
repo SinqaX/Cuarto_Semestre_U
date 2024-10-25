@@ -36,7 +36,11 @@ class ArbolBinario_Bus(arbolBin):
         nueva_clave : object
             Es la nueva clave a ser adicionada al árbol binario de búsqueda.
         """
+        # En abin_bus.py
+        if self.raiz is not None and not isinstance(nueva_clave, type(self.raiz.clave)):
+            raise HomogeneityError("El tipo de la nueva clave no coincide con el tipo de las claves existentes en el árbol.")
         self.raiz = self.__adicionar(self.raiz, nueva_clave)
+
 
     def __adicionar(self, sub_arbol, nueva_clave):
         if sub_arbol is None:
@@ -78,7 +82,7 @@ class ArbolBinario_Bus(arbolBin):
         return None
 
     # CONSULTA #1
-    def econtrar_minimo(self):
+    def encontrar_minimo(self):
         """Método que busca y retorna la clave con menor valor del árbol
         binario de búsqueda, o retorna None cuando el árbol binario de
         búsqueda está vacío.
@@ -91,15 +95,15 @@ class ArbolBinario_Bus(arbolBin):
         """
         if not self.raiz:
             return None
-        return self.__econtrar_minimo(self.raiz)
+        return self.__encontrar_minimo(self.raiz)
 
-    def __econtrar_minimo(self, sub_arbol):
+    def __encontrar_minimo(self, sub_arbol):
         if sub_arbol.izq:
-            return self.__econtrar_minimo(sub_arbol.izq)
+            return self.__encontrar_minimo(sub_arbol.izq)
         return sub_arbol.clave
 
     # CONSULTA #2
-    def econtrar_maximo(self):
+    def encontrar_maximo(self):
         """Método que busca y retorna la clave con mayor valor del árbol
         binario de búsqueda, o retorna None cuando el árbol binario de
         búsqueda está vacío.
@@ -112,11 +116,11 @@ class ArbolBinario_Bus(arbolBin):
         """
         if not self.raiz:
             return None
-        return self.__econtrar_maximo(self.raiz)
+        return self.__encontrar_maximo(self.raiz)
 
-    def __econtrar_maximo(self, sub_arbol):
+    def __encontrar_maximo(self, sub_arbol):
         if sub_arbol.der:
-            return self.__econtrar_maximo(sub_arbol.der)
+            return self.__encontrar_maximo(sub_arbol.der)
         return sub_arbol.clave
 
     # CONSULTA #3
@@ -177,15 +181,12 @@ class ArbolBinario_Bus(arbolBin):
                 return sub_arbol.izq
             
             if mayor:
-                temp = self.__econtrar_maximo(sub_arbol.izq)
+                temp = self.__encontrar_maximo(sub_arbol.izq)
                 sub_arbol.clave = temp
                 sub_arbol.izq = self.__remover(sub_arbol.izq, temp, mayor)
             else:
-                temp = self.__econtrar_minimo(sub_arbol.der)
+                temp = self.__encontrar_minimo(sub_arbol.der)
                 sub_arbol.clave = temp
                 sub_arbol.der = self.__remover(sub_arbol.der, temp, mayor)
         return sub_arbol
 
-
-
-    

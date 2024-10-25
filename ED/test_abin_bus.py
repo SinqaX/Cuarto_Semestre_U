@@ -1,43 +1,132 @@
+import unittest
 from bed.jerarquicas.abin_bus import ArbolBinario_Bus
+from bed.jerarquicas.exepciones import HomogeneityError, DuplicatedKeyError
+from bed.jerarquicas.recorrido import str_pre_orden, str_in_orden, str_post_orden
 
-def test_arbol_binario_bus():
-    # Crear árbol
-    arbol = ArbolBinario_Bus()
+class TestArbolBinarioBus(unittest.TestCase):
 
-    # Adicionar elementos
-    arbol.adicionar(50)
-    arbol.adicionar(40)
-    arbol.adicionar(60)
-    arbol.adicionar(30)
-    arbol.adicionar(41)
-    arbol.adicionar(55)
-    arbol.adicionar(75)
-    arbol.adicionar(25)
-    arbol.adicionar(35)
-    arbol.adicionar(65)
-    arbol.adicionar(86)
+    def setUp(self):
+        """Configuración inicial: se crea un árbol binario de búsqueda vacío."""
+        self.arbol = ArbolBinario_Bus()
 
-    # Test de búsqueda
-    assert arbol.encontrar(50) == 50
-    assert arbol.encontrar(75) == 75
-    assert arbol.encontrar(35) == 35
-    assert arbol.encontrar(100) is None
+    def test_adicionar_y_encontrar(self):
+        """Prueba la adición y búsqueda de claves en el árbol binario de búsqueda."""
+        self.arbol.adicionar(50)
+        self.arbol.adicionar(30)
+        self.arbol.adicionar(70)
 
-    # Test de mínimo y máximo
-    assert arbol.econtrar_minimo() == 25
-    assert arbol.econtrar_maximo() == 86
+        # Verificación de claves
+        print("Esperado: 50, Obtenido:", self.arbol.encontrar(50))
+        self.assertEqual(self.arbol.encontrar(50), 50)
 
-    # Test de eliminación (mayor)
-    arbol.remover(40, mayor=True)
-    assert arbol.encontrar(40) is None
-    assert arbol.encontrar(35) == 35  # Verificar que el mayor de los menores (35) ha reemplazado a 40
+        print("Esperado: 30, Obtenido:", self.arbol.encontrar(30))
+        self.assertEqual(self.arbol.encontrar(30), 30)
 
-    # Test de eliminación (menor)
-    arbol.remover(60, mayor=False)
-    assert arbol.encontrar(60) is None
-    assert arbol.encontrar(65) == 65  # Verificar que el menor de los mayores (65) ha reemplazado a 60
+        print("Esperado: 70, Obtenido:", self.arbol.encontrar(70))
+        self.assertEqual(self.arbol.encontrar(70), 70)
 
-    print("Todos los tests pasaron correctamente.")
+        print("Esperado: None, Obtenido:", self.arbol.encontrar(40))
+        self.assertIsNone(self.arbol.encontrar(40))
 
-# Ejecutar pruebas
-test_arbol_binario_bus()
+    def test_adicionar_duplicado(self):
+        """Prueba que se levante la excepción DuplicatedKeyError al agregar un valor duplicado."""
+        self.arbol.adicionar(50)
+        print("Esperado: DuplicatedKeyError")
+        with self.assertRaises(DuplicatedKeyError):
+            self.arbol.adicionar(50)
+
+    def test_tipo_incorrecto(self):
+        """Prueba que se levante la excepción HomogeneityError al agregar un tipo de dato distinto."""
+        self.arbol.adicionar(50)
+        print("Esperado: HomogeneityError al añadir un tipo distinto (string)")
+        with self.assertRaises(HomogeneityError):
+            self.arbol.adicionar("string")
+
+    def test_encontrar_minimo_y_maximo(self):
+        """Prueba la búsqueda de la clave mínima y máxima en el árbol."""
+        self.arbol.adicionar(50)
+        self.arbol.adicionar(30)
+        self.arbol.adicionar(70)
+        self.arbol.adicionar(10)
+        self.arbol.adicionar(90)
+
+        print("Esperado mínimo: 10, Obtenido:", self.arbol.encontrar_minimo())
+        self.assertEqual(self.arbol.encontrar_minimo(), 10)
+
+        print("Esperado máximo: 90, Obtenido:", self.arbol.encontrar_maximo())
+        self.assertEqual(self.arbol.encontrar_maximo(), 90)
+
+    def test_remover_nodo_sin_hijos(self):
+        """Prueba la eliminación de un nodo sin hijos."""
+        self.arbol.adicionar(50)
+        self.arbol.adicionar(30)
+        self.arbol.adicionar(70)
+        self.arbol.remover(30)
+
+        print("Esperado: None, Obtenido:", self.arbol.encontrar(30))
+        self.assertIsNone(self.arbol.encontrar(30))
+
+    def test_remover_nodo_con_un_hijo(self):
+        """Prueba la eliminación de un nodo con un hijo."""
+        self.arbol.adicionar(50)
+        self.arbol.adicionar(30)
+        self.arbol.adicionar(40)  # Nodo 30 tiene un solo hijo, 40
+        self.arbol.remover(30)
+
+        print("Esperado encontrar None en nodo eliminado: Obtenido:", self.arbol.encontrar(30))
+        self.assertIsNone(self.arbol.encontrar(30))
+
+        print("Esperado encontrar 40 en árbol: Obtenido:", self.arbol.encontrar(40))
+        self.assertEqual(self.arbol.encontrar(40), 40)
+
+    def test_remover_nodo_con_dos_hijos(self):
+        """Prueba la eliminación de un nodo con dos hijos."""
+        self.arbol.adicionar(50)
+        self.arbol.adicionar(30)
+        self.arbol.adicionar(70)
+        self.arbol.adicionar(60)
+        self.arbol.adicionar(80)
+
+        self.arbol.remover(70)
+
+        print("Esperado: None, Obtenido:", self.arbol.encontrar(70))
+        self.assertIsNone(self.arbol.encontrar(70))
+
+    def test_str_pre_orden(self):
+        """Prueba de representación en pre-orden con emojis."""
+        self.arbol.adicionar(50)
+        self.arbol.adicionar(30)
+        self.arbol.adicionar(70)
+        self.arbol.adicionar(10)
+
+        esperado = '[🌲]50|(🌿)30|(🍂)10|(🍂)70'
+        obtenido = str_pre_orden(self.arbol)
+        print(f"Esperado: {esperado}, Obtenido: {obtenido}")
+        self.assertEqual(obtenido, esperado)
+
+    def test_str_in_orden(self):
+        """Prueba de representación en in-orden con emojis."""
+        self.arbol.adicionar(50)
+        self.arbol.adicionar(30)
+        self.arbol.adicionar(70)
+        self.arbol.adicionar(10)
+
+        esperado = '(🍂)10:(🌿)30:[🌲]50:(🍂)70'
+        obtenido = str_in_orden(self.arbol)
+        print(f"Esperado: {esperado}, Obtenido: {obtenido}")
+        self.assertEqual(obtenido, esperado)
+
+    def test_str_post_orden(self):
+        """Prueba de representación en post-orden con emojis."""
+        self.arbol.adicionar(50)
+        self.arbol.adicionar(30)
+        self.arbol.adicionar(70)
+        self.arbol.adicionar(10)
+
+        esperado = '(🍂)10^(🌿)30^(🍂)70^[🌲]50'
+        obtenido = str_post_orden(self.arbol)
+        print(f"Esperado: {esperado}, Obtenido: {obtenido}")
+        self.assertEqual(obtenido, esperado)
+
+if __name__ == '__main__':
+    unittest.main()

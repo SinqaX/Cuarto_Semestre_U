@@ -33,9 +33,9 @@ def str_pre_orden(arbol_bin, sep="|"):
 
 def __str_pre_orden(sub_arbol, resultado, sep, es_raiz):
     if sub_arbol:
-        tipo_nodo = "[]{}" if es_raiz else "(){}"
+        tipo_nodo = "[🌲]{}" if es_raiz else "(🌿){}"
         if sub_arbol.izq is None and sub_arbol.der is None:
-            tipo_nodo = "(){}"  # Nodo hoja
+            tipo_nodo = "(🍂){}"  # Nodo hoja
         resultado.append(tipo_nodo.format(sub_arbol.clave))
         __str_pre_orden(sub_arbol.izq, resultado, sep, False)
         __str_pre_orden(sub_arbol.der, resultado, sep, False)
@@ -77,9 +77,9 @@ def str_in_orden(arbol_bin, sep=":"):
 def __str_in_orden(sub_arbol, resultado, sep, es_raiz):
     if sub_arbol:
         __str_in_orden(sub_arbol.izq, resultado, sep, False)
-        tipo_nodo = "[]{}" if es_raiz else "(){}"
+        tipo_nodo = "[🌲]{}" if es_raiz else "(🌿){}"
         if sub_arbol.izq is None and sub_arbol.der is None:
-            tipo_nodo = "(){}"  # Nodo hoja
+            tipo_nodo = "(🍂){}"  # Nodo hoja
         resultado.append(tipo_nodo.format(sub_arbol.clave))
         __str_in_orden(sub_arbol.der, resultado, sep, False)
 
@@ -121,7 +121,7 @@ def __str_post_orden(sub_arbol, resultado, sep, es_raiz):
     if sub_arbol:
         __str_post_orden(sub_arbol.izq, resultado, sep, False)
         __str_post_orden(sub_arbol.der, resultado, sep, False)
-        tipo_nodo = "[]{}" if es_raiz else "(){}"
+        tipo_nodo = "[🌲]{}" if es_raiz else "(🌿){}"
         if sub_arbol.izq is None and sub_arbol.der is None:
-            tipo_nodo = "(){}"  # Nodo hoja
+            tipo_nodo = "(🍂){}"  # Nodo hoja
         resultado.append(tipo_nodo.format(sub_arbol.clave))
