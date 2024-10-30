@@ -138,3 +138,114 @@ def menu_biblioteca():
 
         else:
             print("Opción no válida, intente de nuevo.")
+
+
+import unittest
+
+class TestLibro(unittest.TestCase):
+
+    def test_crear_libro_valido(self):
+        libro = Libro("El Principito", "9788478887200", "Antoine de Saint-Exupéry", 120)
+        self.assertEqual(libro.titulo, "El Principito")
+        self.assertEqual(libro.isbn, "9788478887200")
+        self.assertEqual(libro.autor, "Antoine de Saint-Exupéry")
+        self.assertEqual(libro.num_paginas, 120)
+
+    def test_titulo_corto(self):
+        with self.assertRaises(ValueError) as e:
+            Libro("AI", "9788478887200")
+        self.assertEqual(str(e.exception), "El título debe tener al menos 3 caracteres.")
+
+    def test_isbn_invalido(self):
+        with self.assertRaises(ValueError) as e:
+            Libro("El Principito", "ISBNINCORRECTO")
+        self.assertEqual(str(e.exception), "El ISBN debe ser numérico y contener entre 10 y 13 dígitos.")
+
+    def test_str_libro(self):
+        libro = Libro("El Principito", "9788478887200", "Antoine de Saint-Exupéry", 120)
+        self.assertEqual(str(libro), "{ 📖 :El Principito:Antoine de Saint-Exupéry:9788478887200:120 pags.}")
+
+    def test_igualdad_libros(self):
+        libro1 = Libro("El Principito", "9788478887200")
+        libro2 = Libro("El Principito", "9788478887200")
+        self.assertEqual(libro1, libro2)
+
+    def test_menor_que_libros(self):
+        libro1 = Libro("A Tale of Two Cities", "9781234567890")
+        libro2 = Libro("War and Peace", "9781234567890")
+        self.assertTrue(libro1 < libro2)
+
+    def test_mayor_que_libros(self):
+        libro1 = Libro("War and Peace", "9781234567890")
+        libro2 = Libro("A Tale of Two Cities", "9781234567890")
+        self.assertTrue(libro1 > libro2)
+
+
+class TestBiblioteca(unittest.TestCase):
+
+    def setUp(self):
+        self.biblioteca = Biblioteca("ACME", "Calle 8 #15-78", "6027845931")
+
+    def test_agregar_libro(self):
+        libro = Libro("El Principito", "9788478887200")
+        self.biblioteca.agregar_libro(libro)
+        encontrado = self.biblioteca.buscar_libro("El Principito", "9788478887200")
+        self.assertIsNotNone(encontrado)
+
+    def test_buscar_libro_existente(self):
+        libro = Libro("El Principito", "9788478887200")
+        self.biblioteca.agregar_libro(libro)
+        encontrado = self.biblioteca.buscar_libro("El Principito", "9788478887200")
+        self.assertEqual(encontrado, libro)
+
+    def test_buscar_libro_inexistente(self):
+        encontrado = self.biblioteca.buscar_libro("Libro no existente", "1234567890")
+        self.assertIsNone(encontrado)
+
+    def test_eliminar_libro(self):
+        libro = Libro("El Principito", "9788478887200")
+        self.biblioteca.agregar_libro(libro)
+        self.biblioteca.eliminar_libro("El Principito", "9788478887200", True)
+        encontrado = self.biblioteca.buscar_libro("El Principito", "9788478887200")
+        self.assertIsNone(encontrado)
+
+    def test_libro_menor(self):
+        libro1 = Libro("A Tale of Two Cities", "9781234567890")
+        libro2 = Libro("War and Peace", "9781234567891")
+        self.biblioteca.agregar_libro(libro1)
+        self.biblioteca.agregar_libro(libro2)
+        self.assertEqual(self.biblioteca.libro_menor(), libro1)
+
+    def test_libro_mayor(self):
+        libro1 = Libro("A Tale of Two Cities", "9781234567890")
+        libro2 = Libro("War and Peace", "9781234567891")
+        self.biblioteca.agregar_libro(libro1)
+        self.biblioteca.agregar_libro(libro2)
+        self.assertEqual(self.biblioteca.libro_mayor(), libro2)
+
+    def test_estadisticas(self):
+        libro1 = Libro("El Principito", "9788478887200")
+        libro2 = Libro("War and Peace", "9781234567891")
+        libro3 = Libro("A Tale of Two Cities", "9781234567892")
+        self.biblioteca.agregar_libro(libro1)
+        self.biblioteca.agregar_libro(libro2)
+        self.biblioteca.agregar_libro(libro3)
+        estadisticas = self.biblioteca.estadisticas()
+        self.assertIn("No. Libros Hoja", estadisticas)
+        self.assertIn("No. Libros Internos", estadisticas)
+        self.assertIn("Altura", estadisticas)
+        self.assertIn("Total de libros", estadisticas)
+
+    def test_str_biblioteca(self):
+        libro1 = Libro("El Principito", "9788478887200")
+        libro2 = Libro("War and Peace", "9781234567891")
+        self.biblioteca.agregar_libro(libro1)
+        self.biblioteca.agregar_libro(libro2)
+        representacion = str(self.biblioteca)
+        self.assertIn("Biblioteca: ACME", representacion)
+        self.assertIn("El Principito", representacion)
+        self.assertIn("War and Peace", representacion)
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -2,6 +2,9 @@ from bed.jerarquicas.exepciones import DuplicatedKeyError, HomogeneityError
 from bed.jerarquicas.nodos import nodoArbol_Bin
 from bed.jerarquicas.abin import arbolBin
 
+#SEBASTIAN DAVID ORDOÑEZ BOLAÑOS
+#ANDRES FELIPE GUERRA MARTINEZ
+
 class ArbolBinario_Bus(arbolBin):
     """Es un árbol binario ordenado, donde los nodos de menor valor van siempre
     por la rama izquierda, y los nodos de mayor valor se ubican siempre por la
