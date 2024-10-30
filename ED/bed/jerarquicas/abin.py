@@ -48,16 +48,34 @@ class arbolBin:
             return 0
         
     def hojas(self):
-        #cantidad de hojas que tiene el arbol
-        pass
+            """Cuenta el número de nodos hoja en el árbol."""
+            return self.__hojas(self.raiz)
+
+    def __hojas(self, sub_arbol):
+        if sub_arbol is None:
+            return 0
+        if sub_arbol.izq is None and sub_arbol.der is None:
+            return 1  # Nodo hoja
+        return self.__hojas(sub_arbol.izq) + self.__hojas(sub_arbol.der)
 
     def internos(self):
-        # identifica los nodos 
-        pass
+        """Cuenta el número de nodos internos en el árbol."""
+        return self.__internos(self.raiz)
+
+    def __internos(self, sub_arbol):
+        if sub_arbol is None or (sub_arbol.izq is None and sub_arbol.der is None):
+            return 0
+        return 1 + self.__internos(sub_arbol.izq) + self.__internos(sub_arbol.der)
 
     def altura(self):
-        #altura de un arbol
-        pass
+        """Calcula la altura del árbol binario."""
+        return self.__altura(self.raiz)
+
+    def __altura(self, sub_arbol):
+        if sub_arbol is None:
+            return 0
+        return 1 + max(self.__altura(sub_arbol.izq), self.__altura(sub_arbol.der))
+
     
 
 

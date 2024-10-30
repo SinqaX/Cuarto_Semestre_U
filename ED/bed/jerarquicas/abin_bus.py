@@ -189,4 +189,4 @@ class ArbolBinario_Bus(arbolBin):
                 sub_arbol.clave = temp
                 sub_arbol.der = self.__remover(sub_arbol.der, temp, mayor)
         return sub_arbol
-
+    
